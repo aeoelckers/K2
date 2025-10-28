@@ -6,8 +6,8 @@
 
 ## Avances Realizados
 - `index.html` utiliza imagenes locales desde `media/` para Hilux, KTM 890, Hyundai H1 y Hino 300; hero actualizado con la foto de Hilux.
-- Se agrego `favicon.svg` con logo textual K2 y se enlazo en el `<head>` para actualizar el icono del sitio.
-- Estructura general de la landing se mantiene con scroll suave y CTA.
+- Se actualizo `favicon.svg` (gradiente azul con "K2") y se agrega versionamiento `?v=1` para forzar cache refresh en GitHub Pages.
+- Enlace al favicon definido en el `<head>` para la nueva version.
 
 ## Pendientes / Ideas
 - Evaluar reemplazar la imagen de la seccion Empresas por un recurso propio/local para evitar hotlink.
@@ -17,4 +17,4 @@
 
 ## Notas adicionales
 - Mantener esta carpeta `session_notes` actualizada en cada sesion para recordar el estado del proyecto.
-- Ultima actualizacion: 2025-10-28 00:24
+- Ultima actualizacion: 2025-10-28 00:30
