@@ -6,7 +6,9 @@
 
 ## Avances Realizados
 - `index.html` usa imagenes locales desde `media/` para la flota y hero.
-- Se configuraron favicons: data URI embebida en el `<head>` y respaldo `favicon.svg?v=2` para forzar refresco en navegadores/GitHub Pages.
+- Se agregó sección "Simula tu mejor opción" con formulario y resultados comparando arriendo flexible vs compra directa.
+- Lógica JavaScript calcula costos totales y recomendación dinámica según vehículo, meses y parámetros ingresados.
+- Favicons configurados: data URI embebida en el `<head>` y respaldo `favicon.svg?v=2` para forzar refresco en navegadores/GitHub Pages.
 - Hero, flota, planes, empresas y contacto mantienen comportamiento responsive y scroll suave.
 
 ## Pendientes / Ideas
@@ -14,7 +16,8 @@
 - Conectar el formulario a un servicio (Formspree, webhook o backend propio) y agregar validaciones extra para telefono.
 - Externalizar CSS y JS a archivos separados (`css/styles.css`, `js/app.js`) para mantenimiento y cache.
 - Ejecutar pruebas de rendimiento/accesibilidad (Lighthouse) y revisar atributos `alt` y contenidos SEO.
+- Afinar supuestos del simulador (tasas, depreciación, incentivos tributarios) con datos reales de la operación.
 
 ## Notas adicionales
 - Mantener esta carpeta `session_notes` actualizada en cada sesion para recordar el estado del proyecto.
-- Ultima actualizacion: 2025-10-28 00:38
+- Ultima actualizacion: 2025-11-02 18:15
