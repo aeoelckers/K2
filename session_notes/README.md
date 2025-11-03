@@ -8,6 +8,7 @@
 - `index.html` usa imagenes locales desde `media/` para la flota y hero.
 - Se agregó sección "Simula tu mejor opción" con formulario y resultados comparando arriendo flexible vs compra directa.
 - Lógica JavaScript calcula costos totales y recomendación dinámica según vehículo, meses y parámetros ingresados.
+- Menu principal incluye enlace directo al simulador para acceso rapido.
 - Favicons configurados: data URI embebida en el `<head>` y respaldo `favicon.svg?v=2` para forzar refresco en navegadores/GitHub Pages.
 - Hero, flota, planes, empresas y contacto mantienen comportamiento responsive y scroll suave.
 
