@@ -1,1185 +1,474 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>K2 Rent | Arriendo y Leasing Flexible de Vehículos</title>
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23004c99%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%228%22%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%2210%22%20fill%3D%22%230070c0%22%20fill-opacity%3D%220.35%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2255%25%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2228%22%20font-weight%3D%22700%22%20fill%3D%22white%22%20text-anchor%3D%22middle%22%3EK2%3C%2Ftext%3E%3C%2Fsvg%3E' />
-    <link rel="icon" sizes="any" href="favicon.svg?v=2" type="image/svg+xml" />
-    <link rel="shortcut icon" href="favicon.svg?v=2" type="image/svg+xml" />
-    <meta name="description" content="K2 Rent ofrece arriendo y leasing flexible de camionetas, motos, furgones y flotas corporativas en Chile." />
+    <title>KPS Logistics | Transporte de Carga y Personal en Chile</title>
+    <meta name="description" content="KPS Logistics ofrece soluciones operacionales en transporte de carga por rutas troncales y transporte de personal corporativo en Chile. Cumplimiento documental y operativo para licitaciones." />
+    <meta name="keywords" content="transporte carga Chile, transporte personal, logística, leasing flota, rutas troncales, licitaciones transporte" />
+    <meta name="author" content="KPS Logistics" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="KPS Logistics | Transporte de Carga y Personal" />
+    <meta property="og:description" content="Soluciones operacionales en transporte y logística para empresas en Chile." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Crect width="64" height="64" rx="10" fill="%230a1628"/%3E%3Ctext x="50%25" y="55%25" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="white" text-anchor="middle"%3EKPS%3C/text%3E%3C/svg%3E' />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-2eVjjMN7Z1gufv1NfHt7zIu+su1wJXXfIiyFFz48S1GTnpZ4NvVtylD1UR7XR10eIPGgN+QkHxjWX3wT4/1P0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
     <style>
-        :root {
-            --blue-dark: #002e5d;
-            --blue-medium: #004c99;
-            --blue-light: #0070c0;
-            --gray-light: #f2f2f2;
-            --white: #ffffff;
-            --text-dark: #1b1b1b;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--white);
-            scroll-behavior: smooth;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        button {
-            font: inherit;
-            cursor: pointer;
-        }
-
-        .container {
-            width: min(1120px, 90%);
-            margin: 0 auto;
-        }
-
-        /* ======= Encabezado de navegación ======= */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--white);
-            box-shadow: 0 2px 18px rgba(0, 46, 93, 0.08);
-            z-index: 1000;
-        }
-
-        .nav-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-        }
-
-        .brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--blue-dark);
-            letter-spacing: 0.5px;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        nav ul {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav li a {
-            font-weight: 500;
-            color: var(--blue-dark);
-            transition: color 0.2s ease;
-        }
-
-        nav li a:hover,
-        nav li a.active {
-            color: var(--blue-light);
-        }
-
-        .cta-button {
-            padding: 0.75rem 1.6rem;
-            border-radius: 999px;
-            border: none;
-            color: var(--white);
-            background: linear-gradient(90deg, var(--blue-medium), var(--blue-light));
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(0, 76, 153, 0.25);
-        }
-
-        .menu-toggle {
-            display: none;
-            border: none;
-            background: none;
-            font-size: 1.5rem;
-            color: var(--blue-dark);
-        }
-
-        main {
-            margin-top: 5.8rem;
-        }
-
-        section {
-            padding: clamp(3rem, 6vw, 5rem) 0;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: clamp(2rem, 5vw, 2.75rem);
-            color: var(--blue-dark);
-            margin-bottom: 0.75rem;
-        }
-
-        section .section-subtitle {
-            text-align: center;
-            color: #454545;
-            max-width: 620px;
-            margin: 0 auto 3rem;
-        }
-
-        /* ======= Hero principal ======= */
-        .hero {
-            position: relative;
-            min-height: 90vh;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            color: var(--white);
-            background: url('media/toyota-hilux.jpg') center/cover no-repeat;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, rgba(0, 46, 93, 0.85), rgba(0, 76, 153, 0.75));
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 8rem 1.5rem 6rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            max-width: 680px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.6rem, 5vw, 3.6rem);
-            line-height: 1.1;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: clamp(1.15rem, 2.5vw, 1.35rem);
-            margin: 0;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-actions .secondary {
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            background: transparent;
-            color: var(--white);
-            padding: 0.75rem 1.6rem;
-            border-radius: 999px;
-            font-weight: 600;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .hero-actions .secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: var(--white);
-        }
-
-        /* ======= Sección Flota ======= */
-        .fleet-grid {
-            display: grid;
-            gap: 1.8rem;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        }
-
-        .card {
-            background-color: var(--white);
-            border-radius: 1rem;
-            box-shadow: 0 12px 30px rgba(0, 46, 93, 0.08);
-            overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 38px rgba(0, 46, 93, 0.12);
-        }
-
-        .card img {
-            height: 190px;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            flex: 1;
-        }
-
-        .card-icon {
-            font-size: 1.9rem;
-            color: var(--blue-light);
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 0.35rem 0.75rem;
-            border-radius: 999px;
-        }
-
-        .status.available {
-            background: rgba(0, 176, 80, 0.12);
-            color: #008a3a;
-        }
-
-        .status.unavailable {
-            background: rgba(255, 193, 7, 0.16);
-            color: #b28704;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: auto;
-        }
-
-        .card-actions button {
-            flex: 1;
-            padding: 0.65rem 0.9rem;
-            border-radius: 0.75rem;
-            border: 1px solid var(--blue-medium);
-            background: transparent;
-            color: var(--blue-medium);
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .card-actions button:hover {
-            background: var(--blue-medium);
-            color: var(--white);
-        }
-
-        .card-actions .primary {
-            background: var(--blue-medium);
-            color: var(--white);
-        }
-
-        .card-actions .primary:hover {
-            background: var(--blue-light);
-            border-color: var(--blue-light);
-        }
-
-        /* ======= Sección Planes ======= */
-        .plans-grid {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        }
-
-        .plan-card {
-            padding: 2rem 1.75rem;
-            border-radius: 1rem;
-            background: linear-gradient(160deg, rgba(0, 76, 153, 0.08), rgba(0, 46, 93, 0.06));
-            border: 1px solid rgba(0, 46, 93, 0.1);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: left;
-        }
-
-        .plan-card i {
-            font-size: 2rem;
-            color: var(--blue-medium);
-        }
-
-        .plan-card h3 {
-            margin: 0;
-            font-size: 1.4rem;
-            color: var(--blue-dark);
-        }
-
-        .plan-card p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #444;
-        }
-
-        .plan-card button {
-            align-self: flex-start;
-            padding: 0.6rem 1.4rem;
-            border-radius: 999px;
-            border: none;
-            background: var(--blue-dark);
-            color: var(--white);
-            font-weight: 600;
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .plan-card button:hover {
-            transform: translateY(-2px);
-            background: var(--blue-light);
-        }
-
-        /* ======= Sección Empresas ======= */
-        .enterprises {
-            background-color: var(--gray-light);
-        }
-
-        .enterprises-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            align-items: center;
-            gap: 2.5rem;
-        }
-
-        .enterprises-text h3 {
-            font-size: 2rem;
-            color: var(--blue-dark);
-            margin-bottom: 1rem;
-        }
-
-        .enterprises-text p {
-            margin: 0;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #454545;
-        }
-
-        .enterprises-image {
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 46, 93, 0.12);
-        }
-
-        /* ======= Simulador financiero ======= */
-        .simulator {
-            background: linear-gradient(140deg, rgba(0, 46, 93, 0.04), rgba(0, 112, 192, 0.05));
-        }
-
-        .simulator-grid {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            align-items: start;
-        }
-
-        .sim-form {
-            background-color: var(--white);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 16px 36px rgba(0, 46, 93, 0.1);
-            display: grid;
-            gap: 1.25rem;
-        }
-
-        .sim-form .field-group {
-            display: grid;
-            gap: 0.4rem;
-        }
-
-        .sim-form label {
-            font-weight: 600;
-            color: var(--blue-dark);
-        }
-
-        .sim-form select,
-        .sim-form input[type="number"] {
-            padding: 0.75rem 0.9rem;
-            border-radius: 0.75rem;
-            border: 1px solid rgba(0, 46, 93, 0.18);
-            background-color: #fafbff;
-            font-size: 0.95rem;
-            transition: border 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .sim-form select:focus,
-        .sim-form input[type="number"]:focus {
-            outline: none;
-            border-color: var(--blue-light);
-            box-shadow: 0 0 0 3px rgba(0, 112, 192, 0.15);
-        }
-
-        .sim-action {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .sim-action button {
-            padding: 0.85rem 1.8rem;
-            border: none;
-            border-radius: 999px;
-            background: linear-gradient(120deg, var(--blue-medium), var(--blue-light));
-            color: var(--white);
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .sim-action button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(0, 76, 153, 0.22);
-        }
-
-        .sim-note {
-            font-size: 0.85rem;
-            color: #5a5a5a;
-            line-height: 1.4;
-        }
-
-        .sim-results {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .sim-result-card {
-            background-color: var(--white);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 16px 36px rgba(0, 46, 93, 0.1);
-            display: grid;
-            gap: 0.75rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sim-result-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(160deg, rgba(0, 76, 153, 0.08), rgba(0, 46, 93, 0.05));
+        .fade-in {
             opacity: 0;
-            transition: opacity 0.2s ease;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-
-        .sim-result-card.active::after {
+        .fade-in.visible {
             opacity: 1;
-        }
-
-        .sim-result-card h3 {
-            margin: 0;
-            color: var(--blue-dark);
-            font-size: 1.4rem;
-        }
-
-        .sim-total {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--blue-dark);
-        }
-
-        .sim-sub {
-            margin: 0;
-            color: #475569;
-            font-size: 0.95rem;
-        }
-
-        .comparison-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.5rem 0.9rem;
-            border-radius: 999px;
-            background-color: rgba(0, 112, 192, 0.1);
-            color: var(--blue-medium);
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        .sim-summary {
-            background-color: #0b2f54;
-            color: rgba(255, 255, 255, 0.92);
-            border-radius: 1rem;
-            padding: 1.7rem;
-            display: grid;
-            gap: 0.8rem;
-        }
-
-        .sim-summary strong {
-            font-size: 1.1rem;
-        }
-
-        /* ======= Sección Contacto ======= */
-        .contact-grid {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            align-items: start;
-        }
-
-        form {
-            display: grid;
-            gap: 1rem;
-        }
-
-        label {
-            font-weight: 600;
-            color: var(--blue-dark);
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 0.85rem 0.9rem;
-            border-radius: 0.75rem;
-            border: 1px solid rgba(0, 46, 93, 0.2);
-            background-color: var(--white);
-            font-size: 0.95rem;
-            transition: border 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--blue-light);
-            box-shadow: 0 0 0 3px rgba(0, 112, 192, 0.15);
-        }
-
-        textarea {
-            min-height: 140px;
-            resize: vertical;
-        }
-
-        .contact-info {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .contact-info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.9rem;
-            font-size: 0.95rem;
-            color: #444;
-        }
-
-        .contact-info-item i {
-            font-size: 1.3rem;
-            color: var(--blue-medium);
-        }
-
-        .contact-submit {
-            padding: 0.85rem 1.5rem;
-            border: none;
-            border-radius: 999px;
-            background: linear-gradient(120deg, var(--blue-medium), var(--blue-light));
-            color: var(--white);
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .contact-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(0, 76, 153, 0.28);
-        }
-
-        /* ======= Pie de página ======= */
-        footer {
-            background-color: var(--blue-dark);
-            color: rgba(255, 255, 255, 0.85);
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.12);
-            display: grid;
-            place-items: center;
-            color: var(--white);
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
-
-        .socials a:hover {
-            transform: translateY(-3px);
-            background-color: rgba(0, 112, 192, 0.4);
-        }
-
-        /* ======= Adaptaciones responsive ======= */
-        @media (max-width: 900px) {
-            nav {
-                position: absolute;
-                top: 100%;
-                right: 5%;
-                background-color: var(--white);
-                width: min(280px, 85vw);
-                padding: 1.5rem;
-                box-shadow: 0 12px 30px rgba(0, 46, 93, 0.2);
-                border-radius: 1rem;
-                transform: translateY(-10px);
-                opacity: 0;
-                visibility: hidden;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.25rem;
-                transition: opacity 0.2s ease, transform 0.2s ease;
-            }
-
-            nav.open {
-                transform: translateY(10px);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-actions {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .card img {
-                height: 170px;
-            }
-
-            .plan-card {
-                text-align: center;
-                align-items: center;
-            }
-
-            .plan-card button {
-                align-self: center;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- ======= Encabezado con navegación principal ======= -->
-    <header>
-        <div class="container nav-wrapper">
-            <a href="#inicio" class="brand">K2 Rent</a>
+
+    <!-- ====== Header ====== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#inicio" class="logo">
+                <div class="logo-mark">KPS</div>
+                <div class="logo-text">Logistics</div>
+            </a>
             <button class="menu-toggle" aria-label="Abrir menú">
-                <i class="fas fa-bars"></i>
+                <span></span>
             </button>
-            <nav>
+            <nav class="main-nav" aria-label="Navegación principal">
                 <ul>
-                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#flota">Flota</a></li>
-                    <li><a href="#planes">Planes</a></li>
-                    <li><a href="#simulador">Simulador</a></li>
-                    <li><a href="#empresas">Empresas</a></li>
+                    <li><a href="#licitaciones">Licitaciones</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
-                <button class="cta-button" data-scroll="#contacto">Consultar Disponibilidad</button>
             </nav>
+            <a href="#contacto" class="btn btn-primary header-cta">Solicitar Propuesta</a>
         </div>
     </header>
 
     <main>
-        <!-- ======= Hero principal con mensaje clave y llamado a la acción ======= -->
+
+        <!-- ====== Hero ====== -->
         <section class="hero" id="inicio">
-            <div class="hero-content">
-                <h1>Arriendos y Leasing Flexibles</h1>
-                <p>Camionetas, motos y flotas adaptadas a tu trabajo o aventura.</p>
-                <div class="hero-actions">
-                    <button class="cta-button" data-scroll="#contacto">Consultar Disponibilidad</button>
-                    <button class="secondary" data-scroll="#flota">Ver flota disponible</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ======= Sección de flota destacada ======= -->
-        <section id="flota">
+            <div class="hero-bg" role="img" aria-label="Camión de carga en carretera chilena"></div>
             <div class="container">
-                <h2>Nuestra Flota</h2>
-                <p class="section-subtitle">Vehículos listos para acompañarte en cada proyecto. Escoge la opción que más se ajusta a tus necesidades.</p>
-                <div class="fleet-grid">
-                    <!-- Tarjeta Toyota Hilux -->
-                    <article class="card">
-                        <img src="media/toyota-hilux.jpg" alt="Toyota Hilux 4x4 color plata en concesionario" />
-                        <div class="card-body">
-                            <i class="card-icon fas fa-truck-pickup"></i>
-                            <h3>Toyota Hilux 4x4</h3>
-                            <span class="status available"><i class="fas fa-circle"></i> Disponible</span>
-                            <p>Pick-up ideal para faenas, minería y trabajos de alta exigencia en terreno.</p>
-                            <div class="card-actions">
-                                <button>Ver detalles</button>
-                                <button class="primary">Consultar</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Tarjeta KTM -->
-                    <article class="card">
-                        <img src="media/ktm-890-adventure.jpg" alt="KTM Adventure 890 naranja en estudio de concesionario" />
-                        <div class="card-body">
-                            <i class="card-icon fas fa-motorcycle"></i>
-                            <h3>KTM Adventure 890</h3>
-                            <span class="status available"><i class="fas fa-circle"></i> Disponible</span>
-                            <p>Moto adventure para exploraciones de alto desempeño y logística ágil.</p>
-                            <div class="card-actions">
-                                <button>Ver detalles</button>
-                                <button class="primary">Consultar</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Tarjeta Hyundai H1 -->
-                    <article class="card">
-                        <img src="media/hyundai-h1.jpg" alt="Hyundai H1 cargo gris metálico en sala" />
-                        <div class="card-body">
-                            <i class="card-icon fas fa-van-shuttle"></i>
-                            <h3>Hyundai H1</h3>
-                            <span class="status unavailable"><i class="fas fa-circle"></i> Arrendado</span>
-                            <p>Furgón ejecutivo para transporte de personal con gran comodidad y seguridad.</p>
-                            <div class="card-actions">
-                                <button>Ver detalles</button>
-                                <button class="primary">Reservar lista de espera</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Tarjeta Hino 300 -->
-                    <article class="card">
-                        <img src="media/hino-300.jpg" alt="Camión Hino 300 blanco estacionado en sucursal" />
-                        <div class="card-body">
-                            <i class="card-icon fas fa-truck"></i>
-                            <h3>Hino 300</h3>
-                            <span class="status unavailable"><i class="fas fa-circle"></i> Arrendado</span>
-                            <p>Camiones de carga ligera para distribución urbana y proyectos logísticos.</p>
-                            <div class="card-actions">
-                                <button>Ver detalles</button>
-                                <button class="primary">Reservar lista de espera</button>
-                            </div>
-                        </div>
-                    </article>
+                <div class="hero-content">
+                    <h1>KPS Logistics</h1>
+                    <p>Soluciones operacionales en transporte y logística.</p>
+                    <div class="hero-actions">
+                        <a href="#contacto" class="btn btn-primary">Solicitar Propuesta</a>
+                        <a href="#servicios" class="btn btn-outline">Ver Servicios</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <strong>Cobertura Nacional</strong>
+                        <span>Rutas troncales Chile</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>Operación 24/7</strong>
+                        <span>Soporte continuo</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>ISO Compliance</strong>
+                        <span>Estándares de seguridad</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======= Sección de planes flexibles ======= -->
-        <section id="planes">
+        <!-- ====== Servicios ====== -->
+        <section class="servicios" id="servicios">
             <div class="container">
-                <h2>Planes Flexibles</h2>
-                <p class="section-subtitle">Escoge la modalidad que mejor se ajusta a tus tiempos, presupuesto y operación. Todas incluyen apoyo 24/7.</p>
-                <div class="plans-grid">
-                    <article class="plan-card">
-                        <i class="fas fa-calendar-day"></i>
-                        <h3>Plan Diario</h3>
-                        <p>Ideal para viajes o uso temporal. Flexibilidad total sin contratos extensos.</p>
-                        <button>Consultar Plan</button>
+                <div class="servicios-header fade-in">
+                    <span class="section-label">Servicios</span>
+                    <h2 class="section-title">Soluciones de Transporte Especializadas</h2>
+                    <p class="section-desc">Operamos dos unidades de negocio diseñadas para responder a las exigencias logísticas de la industria y el sector corporativo en Chile.</p>
+                </div>
+                <div class="servicios-grid">
+                    <article class="servicio-card fade-in">
+                        <div class="servicio-img">
+                            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80"
+                                 alt="Camión de carga en ruta troncal chilena"
+                                 loading="lazy"
+                                 onerror="this.src='https://placehold.co/800x480/0a1628/ffffff?text=Transporte+de+Carga'" />
+                        </div>
+                        <div class="servicio-body">
+                            <h3>Transporte de Carga</h3>
+                            <p>Movemos tu carga por las principales rutas del país con control operativo de extremo a extremo.</p>
+                            <div class="servicio-features">
+                                <div class="servicio-feature">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Rutas nacionales</span>
+                                </div>
+                                <div class="servicio-feature">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Operación troncal</span>
+                                </div>
+                                <div class="servicio-feature">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Coordinación logística</span>
+                                </div>
+                                <div class="servicio-feature">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Seguimiento operativo</span>
+                                </div>
+                            </div>
+                        </div>
                     </article>
-                    <article class="plan-card">
-                        <i class="fas fa-calendar-week"></i>
-                        <h3>Plan Semanal</h3>
-                        <p>Mayor flexibilidad con tarifas preferenciales y soporte permanente.</p>
-                        <button>Consultar Plan</button>
-                    </article>
-                    <article class="plan-card">
-                        <i class="fas fa-briefcase"></i>
-                        <h3>Leasing Operativo</h3>
-                        <p>Para empresas con contratos mensuales, mantenimiento y gestión delegada.</p>
-                        <button>Consultar Plan</button>
+                    <article class="servicio-card fade-in">
+                        <div class="servicio-img">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"
+                                 alt="Van de transporte de personal corporativo"
+                                 loading="lazy"
+                                 onerror="this.src='https://placehold.co/800x480/0a1628/ffffff?text=Transporte+de+Personal'" />
+                        </div>
+                        <div class="servicio-body">
+                            <h3>Transporte de Personal</h3>
+                            <p>Traslados corporativos seguros y coordinados para operaciones por turnos y jornadas especiales.</p>
+                            <div class="servicio-features">
+                                <div class="servicio-feature">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Traslados corporativos</span>
+                                </div>
+                                <div class="servicio-feature">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Coordinación por turnos</span>
+                                </div>
+                                <div class="servicio-feature">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Seguridad operacional</span>
+                                </div>
+                                <div class="servicio-feature">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Gestión documental conductores</span>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- ======= Sección enfocada a empresas ======= -->
-        <section class="enterprises" id="empresas">
-            <div class="container enterprises-content">
-                <div class="enterprises-text">
-                    <h3>Convenios y Leasing para Empresas</h3>
-                    <p>Ofrecemos arriendo y leasing flexible para flotas corporativas, proyectos industriales o faenas. Adaptamos cada contrato según tus necesidades, con soporte operativo, mantenimiento y reportes personalizados para asegurar continuidad operacional.</p>
-                </div>
-                <div class="enterprises-image">
-                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1400&q=80" alt="Fila de camionetas en concesionario listas para empresas" />
-                </div>
-            </div>
-        </section>
-
-        <!-- ======= Simulador de conveniencia financiera ======= -->
-        <section class="simulator" id="simulador">
+        <!-- ====== Flota ====== -->
+        <section class="flota" id="flota">
             <div class="container">
-                <h2>Simula tu mejor opción</h2>
-                <p class="section-subtitle">Compara el costo total de un arriendo flexible con opción de compra frente a adquirir el vehículo en propiedad. Ajusta los valores según tu operación y descubre qué alternativa se adapta mejor a tu presupuesto.</p>
-                <div class="simulator-grid">
-                    <form class="sim-form" id="sim-form">
-                        <div class="field-group">
-                            <label for="sim-vehicle">Selecciona un vehículo</label>
-                            <select id="sim-vehicle" name="vehicle">
-                                <option value="hilux">Toyota Hilux 4x4</option>
-                                <option value="ktm">KTM Adventure 890</option>
-                                <option value="h1">Hyundai H1</option>
-                                <option value="hino">Hino 300</option>
-                            </select>
+                <div class="flota-header fade-in">
+                    <span class="section-label">Flota</span>
+                    <h2 class="section-title">Unidades Operativas</h2>
+                    <p class="section-desc">Flota propia y administrada con estándares de mantenimiento preventivo, trazabilidad GPS y control documental permanente.</p>
+                </div>
+                <div class="flota-grid">
+                    <div class="flota-card fade-in">
+                        <div class="flota-card-img">
+                            <img                            src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&h=440&q=80"
+                                                             alt="Camión de carga pesada en ruta"
+                                 loading="lazy"
+                                 onerror="this.src='https://placehold.co/800x440/0a1628/ffffff?text=Camiones'" />
+                            <span class="flota-badge">Camiones</span>
                         </div>
-                        <div class="field-group">
-                            <label for="sim-months">Meses de uso</label>
-                            <input type="number" id="sim-months" name="months" min="6" max="60" step="1" value="24" />
+                        <div class="flota-card-body">
+                            <h3>Camiones de Carga</h3>
+                            <div class="flota-specs">
+                                <div class="flota-spec">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    <span>Monitoreo GPS en tiempo real</span>
+                                </div>
+                                <div class="flota-spec">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                                    <span>Mantenimiento programado</span>
+                                </div>
+                                <div class="flota-spec">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                                    <span>Planificación de rutas</span>
+                                </div>
+                                <div class="flota-spec">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                                    <span>Control operativo centralizado</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="field-group">
-                            <label for="sim-lease-monthly">Cuota mensual K2 (CLP)</label>
-                            <input type="number" id="sim-lease-monthly" name="leaseMonthly" min="0" step="5000" value="0" />
+                    </div>
+                    <div class="flota-card fade-in">
+                        <div class="flota-card-img">
+                            <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80"
+                                 alt="Van de transporte de personal blanca"
+                                 loading="lazy"
+                                 onerror="this.src='https://placehold.co/800x440/0a1628/ffffff?text=Vans+%2F+Minibuses'" />
+                            <span class="flota-badge">Vans / Minibuses</span>
                         </div>
-                        <div class="field-group">
-                            <label for="sim-lease-final">Pago opción compra (CLP)</label>
-                            <input type="number" id="sim-lease-final" name="leaseFinal" min="0" step="5000" value="0" />
-                        </div>
-                        <div class="field-group">
-                            <label for="sim-purchase-price">Precio de compra contado (CLP)</label>
-                            <input type="number" id="sim-purchase-price" name="purchasePrice" min="0" step="50000" value="0" />
-                        </div>
-                        <div class="field-group">
-                            <label for="sim-ownership-monthly">Seguro + mantención mensual (CLP)</label>
-                            <input type="number" id="sim-ownership-monthly" name="ownershipMonthly" min="0" step="5000" value="0" />
-                        </div>
-                        <div class="field-group">
-                            <label for="sim-residual">Valor de reventa estimado (%)</label>
-                            <input type="number" id="sim-residual" name="residual" min="0" max="90" step="1" value="50" />
-                        </div>
-                        <div class="sim-action">
-                            <button type="button" id="sim-calculate">Calcular</button>
-                            <span class="comparison-badge"><i class="fas fa-chart-line"></i> Resultados dinámicos</span>
-                        </div>
-                        <p class="sim-note">* Los valores son referenciales y no constituyen una oferta. Ajusta los montos según tus condiciones comerciales, kilometraje y tipo de financiamiento.</p>
-                    </form>
-                    <div class="sim-results">
-                        <div class="sim-result-card" id="sim-lease-card">
-                            <h3>Arrendar con K2 Rent</h3>
-                            <p class="sim-total" id="sim-lease-total"><!-- ======= Sección de contacto con formulario ======= --></p>
-                            <p class="sim-sub">Cuota mensual promedio: <span id="sim-lease-monthly-display"><!-- ======= Sección de contacto con formulario ======= --></span></p>
-                            <p class="sim-sub">Incluye cuotas x <span id="sim-months-display">0</span> meses + opción de compra.</p>
-                        </div>
-                        <div class="sim-result-card" id="sim-buy-card">
-                            <h3>Comprar directo</h3>
-                            <p class="sim-total" id="sim-buy-total"><!-- ======= Sección de contacto con formulario ======= --></p>
-                            <p class="sim-sub">Costo mensual equivalente: <span id="sim-buy-monthly"><!-- ======= Sección de contacto con formulario ======= --></span></p>
-                            <p class="sim-sub">Incluye compra, gastos mensuales y valor de reventa estimado.</p>
-                        </div>
-                        <div class="sim-summary" id="sim-summary">
-                            <strong id="sim-recommendation">Ingresa valores para ver la recomendación.</strong>
-                            <span id="sim-difference">&nbsp;</span>
+                        <div class="flota-card-body">
+                            <h3>Vans y Minibuses</h3>
+                            <div class="flota-specs">
+                                <div class="flota-spec">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    <span>Monitoreo GPS en tiempo real</span>
+                                </div>
+                                <div class="flota-spec">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                                    <span>Mantenimiento programado</span>
+                                </div>
+                                <div class="flota-spec">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                                    <span>Planificación de rutas</span>
+                                </div>
+                                <div class="flota-spec">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                                    <span>Control operativo centralizado</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======= Sección de contacto con formulario ======= -->
-        <section id="contacto">
+        <!-- ====== Licitaciones ====== -->
+        <section class="licitaciones" id="licitaciones">
             <div class="container">
-                <h2>Conversemos</h2>
-                <p class="section-subtitle">Completa el formulario y nuestro equipo te contactará para diseñar la solución de movilidad perfecta para tu operación.</p>
-                <div class="contact-grid">
-                    <form>
-                        <div>
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required />
-                        </div>
-                        <div>
-                            <label for="correo">Correo</label>
-                            <input type="email" id="correo" name="correo" placeholder="nombre@empresa.cl" required />
-                        </div>
-                        <div>
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" />
-                        </div>
-                        <div>
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué tipo de vehículo o plan necesitas"></textarea>
-                        </div>
-                        <button type="submit" class="contact-submit">Enviar consulta</button>
-                    </form>
-                    <div class="contact-info">
-                        <div class="contact-info-item">
-                            <i class="fas fa-location-dot"></i>
-                            <div>
-                                <strong>Oficina Comercial</strong><br />
-                                Santiago, Chile
+                <div class="licitaciones-inner">
+                    <div class="fade-in">
+                        <span class="section-label">Licitaciones</span>
+                        <h2 class="section-title">Preparados para Procesos Formales</h2>
+                        <p class="section-desc">Contamos con la documentación, seguros y protocolos necesarios para participar en licitaciones tanto del sector público como privado.</p>
+                        <div class="licitaciones-list">
+                            <div class="licitaciones-item">
+                                <div class="licitaciones-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                </div>
+                                <div>
+                                    <h4>Cumplimiento documental</h4>
+                                    <p>Documentación legal, tributaria y operativa actualizada para cada proceso.</p>
+                                </div>
+                            </div>
+                            <div class="licitaciones-item">
+                                <div class="licitaciones-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4>Seguros vigentes</h4>
+                                    <p>Pólizas de responsabilidad civil, carga y accidentes del trabajo al día.</p>
+                                </div>
+                            </div>
+                            <div class="licitaciones-item">
+                                <div class="licitaciones-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                </div>
+                                <div>
+                                    <h4>Protocolos de seguridad</h4>
+                                    <p>Procedimientos operativos estandarizados y capacitación permanente.</p>
+                                </div>
+                            </div>
+                            <div class="licitaciones-item">
+                                <div class="licitaciones-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                                </div>
+                                <div>
+                                    <h4>Antecedentes bajo solicitud</h4>
+                                    <p>Carpeta completa disponible para evaluación en licitaciones públicas y privadas.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="contact-info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <strong>Correo</strong><br />
-                                contactok2rent.cl
+                    </div>
+                    <div class="licitaciones-visual fade-in">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+                             alt="Documentos y contrato profesional sobre escritorio"
+                             loading="lazy"
+                             onerror="this.src='https://placehold.co/800x600/132a4a/ffffff?text=Licitaciones'" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Sobre KPS ====== -->
+        <section class="about" id="nosotros">
+            <div class="container">
+                <div class="about-inner">
+                    <div class="about-visual fade-in">
+                        <div class="about-card">
+                            <h3>KPS Group</h3>
+                            <p class="about-tagline">Plataforma empresarial multisectorial</p>
+                            <p>Estructura corporativa orientada a consolidar operaciones de transporte, logística y futuras divisiones de negocio bajo una gestión centralizada.</p>
+                            <div class="about-divisions">
+                                <div class="about-division active">
+                                    <div class="about-division-dot"></div>
+                                    <span>KPS Logistics</span>
+                                    <small>Operativa</small>
+                                </div>
+                                <div class="about-division">
+                                    <div class="about-division-dot"></div>
+                                    <span>KPS Capital</span>
+                                    <small>En desarrollo</small>
+                                </div>
+                                <div class="about-division">
+                                    <div class="about-division-dot"></div>
+                                    <span>KPS Leasing</span>
+                                    <small>En desarrollo</small>
+                                </div>
                             </div>
                         </div>
-                        <div class="contact-info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <strong>Teléfono</strong><br />
-                                +56 9 7339 2197
+                    </div>
+                    <div class="about-text fade-in">
+                        <span class="section-label">Sobre Nosotros</span>
+                        <h2 class="section-title">Parte de un ecosistema en crecimiento</h2>
+                        <p class="section-desc">KPS Logistics es la división operativa de KPS Group, una plataforma empresarial chilena orientada al transporte, la logística y futuras verticales de negocio. Nuestra estructura permite escalar servicios de forma eficiente, manteniendo estándares corporativos en cada operación.</p>
+                        <p class="section-desc">Trabajamos con foco en la formalidad, el cumplimiento normativo y la confiabilidad operacional que exigen tanto el sector público como las grandes empresas privadas del país.</p>
+                        <div class="about-highlights">
+                            <div class="about-highlight">
+                                <strong>Cobertura Nacional</strong>
+                                <span>Operación en rutas troncales del país</span>
+                            </div>
+                            <div class="about-highlight">
+                                <strong>100% Formal</strong>
+                                <span>Documentación y seguros al día</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- ====== Contacto ====== -->
+        <section class="contacto" id="contacto">
+            <div class="container">
+                <div class="contacto-header fade-in">
+                    <span class="section-label">Contacto</span>
+                    <h2 class="section-title">Conversemos sobre tu operación</h2>
+                    <p class="section-desc">Completa el formulario y nuestro equipo comercial te contactará para elaborar una propuesta a la medida de tus requerimientos.</p>
+                </div>
+                <div class="contacto-grid">
+                    <div class="contacto-form fade-in">
+                        <form id="contact-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="empresa">Empresa</label>
+                                    <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="correo@empresa.cl" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" />
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="servicio">Tipo de servicio</label>
+                                    <select id="servicio" name="servicio" required>
+                                        <option value="" disabled selected>Seleccione un servicio</option>
+                                        <option value="carga">Transporte de Carga</option>
+                                        <option value="personal">Transporte de Personal</option>
+                                        <option value="ambos">Ambos servicios</option>
+                                        <option value="otro">Otro / Consulta general</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="mensaje">Mensaje</label>
+                                    <textarea id="mensaje" name="mensaje" placeholder="Describa brevemente sus requerimientos de transporte" rows="4"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Enviar Consulta</button>
+                                <button type="button" id="whatsapp-btn" class="btn btn-whatsapp">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                    Contacto por WhatsApp
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="contacto-sidebar fade-in">
+                        <div class="contacto-info-card">
+                            <h4>Información de Contacto</h4>
+                            <div class="info-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <div>
+                                    <strong>Oficina Comercial</strong>
+                                    <span>Santiago, Chile</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <div>
+                                    <strong>Correo Electrónico</strong>
+                                    <span>contacto@kpslogistics.cl</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <div>
+                                    <strong>Teléfono</strong>
+                                    <span>+56 9 1234 5678</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contacto-info-card">
+                            <h4>Horario de Atención</h4>
+                            <div class="info-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <div>
+                                    <strong>Lunes a Viernes</strong>
+                                    <span>08:30 - 18:00 hrs</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <div>
+                                    <strong>Operación logística</strong>
+                                    <span>24/7 según contrato</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- ======= Pie de página con redes ======= -->
-    <footer>
-        <div class="socials">
-            <a href="#" aria-label="Facebook K2 Rent"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram K2 Rent"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn K2 Rent"><i class="fab fa-linkedin-in"></i></a>
+    <!-- ====== Footer ====== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="#inicio" class="logo">
+                        <div class="logo-mark">KPS</div>
+                        <div class="logo-text" style="color:white;">Logistics</div>
+                    </a>
+                    <p>Soluciones operacionales en transporte de carga y personal para empresas en Chile. Parte de KPS Group.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Servicios</h5>
+                    <a href="#servicios">Transporte de Carga</a>
+                    <a href="#servicios">Transporte de Personal</a>
+                    <a href="#flota">Nuestra Flota</a>
+                    <a href="#licitaciones">Licitaciones</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Empresa</h5>
+                    <a href="#nosotros">Sobre KPS</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="#contacto">Solicitar Propuesta</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025 KPS Logistics &middot; KPS Group. Todos los derechos reservados.</span>
+                <a href="#inicio">Volver al inicio</a>
+            </div>
         </div>
-        <p>2025 K2 Rent · Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        // ======= Simulador financiero =======
-        const vehicleCatalog = {
-            hilux: {
-                name: "Toyota Hilux 4x4",
-                months: 24,
-                leaseMonthly: 890000,
-                leaseFinal: 12000000,
-                purchasePrice: 30500000,
-                ownershipMonthly: 180000,
-                residual: 55
-            },
-            ktm: {
-                name: "KTM Adventure 890",
-                months: 18,
-                leaseMonthly: 420000,
-                leaseFinal: 4000000,
-                purchasePrice: 15900000,
-                ownershipMonthly: 95000,
-                residual: 52
-            },
-            h1: {
-                name: "Hyundai H1",
-                months: 24,
-                leaseMonthly: 820000,
-                leaseFinal: 9000000,
-                purchasePrice: 28900000,
-                ownershipMonthly: 210000,
-                residual: 50
-            },
-            hino: {
-                name: "Hino 300",
-                months: 30,
-                leaseMonthly: 1150000,
-                leaseFinal: 14000000,
-                purchasePrice: 38500000,
-                ownershipMonthly: 240000,
-                residual: 45
-            }
-        };
-
-        const simForm = document.getElementById('sim-form');
-        if (simForm) {
-            const formatter = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 });
-            const vehicleSelect = document.getElementById('sim-vehicle');
-            const monthsInput = document.getElementById('sim-months');
-            const leaseMonthlyInput = document.getElementById('sim-lease-monthly');
-            const leaseFinalInput = document.getElementById('sim-lease-final');
-            const purchasePriceInput = document.getElementById('sim-purchase-price');
-            const ownershipMonthlyInput = document.getElementById('sim-ownership-monthly');
-            const residualInput = document.getElementById('sim-residual');
-            const leaseTotalEl = document.getElementById('sim-lease-total');
-            const leaseMonthlyEl = document.getElementById('sim-lease-monthly-display');
-            const monthsDisplay = document.getElementById('sim-months-display');
-            const buyTotalEl = document.getElementById('sim-buy-total');
-            const buyMonthlyEl = document.getElementById('sim-buy-monthly');
-            const recommendationEl = document.getElementById('sim-recommendation');
-            const differenceEl = document.getElementById('sim-difference');
-            const leaseCard = document.getElementById('sim-lease-card');
-            const buyCard = document.getElementById('sim-buy-card');
-            const calculateBtn = document.getElementById('sim-calculate');
-
-            const sanitizeNumber = (value, fallback = 0) => {
-                const numeric = Number(value);
-                return Number.isFinite(numeric) ? numeric : fallback;
-            };
-
-            const applyDefaults = key => {
-                const data = vehicleCatalog[key];
-                if (!data) return;
-                monthsInput.value = data.months;
-                leaseMonthlyInput.value = data.leaseMonthly;
-                leaseFinalInput.value = data.leaseFinal;
-                purchasePriceInput.value = data.purchasePrice;
-                ownershipMonthlyInput.value = data.ownershipMonthly;
-                residualInput.value = data.residual;
-            };
-
-            const setActiveCard = type => {
-                leaseCard.classList.remove('active');
-                buyCard.classList.remove('active');
-                if (type === 'lease') leaseCard.classList.add('active');
-                if (type === 'buy') buyCard.classList.add('active');
-            };
-
-            const calculate = () => {
-                const months = Math.max(1, sanitizeNumber(monthsInput.value, 1));
-                const leaseMonthly = Math.max(0, sanitizeNumber(leaseMonthlyInput.value, 0));
-                const leaseFinal = Math.max(0, sanitizeNumber(leaseFinalInput.value, 0));
-                const purchasePrice = Math.max(0, sanitizeNumber(purchasePriceInput.value, 0));
-                const ownershipMonthly = Math.max(0, sanitizeNumber(ownershipMonthlyInput.value, 0));
-                const residualPercent = Math.min(90, Math.max(0, sanitizeNumber(residualInput.value, 0)));
-
-                const leaseTotal = (leaseMonthly * months) + leaseFinal;
-                const leaseMonthlyEffective = leaseTotal / months;
-
-                const residualValue = purchasePrice * (residualPercent / 100);
-                let purchaseTotal = purchasePrice + (ownershipMonthly * months) - residualValue;
-                purchaseTotal = Math.max(purchaseTotal, 0);
-                const purchaseMonthly = months > 0 ? purchaseTotal / months : purchaseTotal;
-
-                leaseTotalEl.textContent = formatter.format(leaseTotal);
-                leaseMonthlyEl.textContent = formatter.format(leaseMonthlyEffective);
-                monthsDisplay.textContent = months;
-                buyTotalEl.textContent = formatter.format(purchaseTotal);
-                buyMonthlyEl.textContent = formatter.format(purchaseMonthly);
-
-                const difference = purchaseTotal - leaseTotal;
-                const absoluteDifference = Math.abs(difference);
-
-                if (difference > 1000) {
-                    recommendationEl.textContent = `Conviene arrendar con K2 Rent. Ahorro estimado de ${formatter.format(absoluteDifference)} frente a comprar.`;
-                    differenceEl.textContent = `El arriendo flexible implica un costo total aproximado de ${formatter.format(leaseTotal)} versus ${formatter.format(purchaseTotal)} si compras.`;
-                    setActiveCard('lease');
-                } else if (difference < -1000) {
-                    recommendationEl.textContent = `Conviene comprar directo. Ahorro estimado de ${formatter.format(absoluteDifference)} frente al arriendo flexible.`;
-                    differenceEl.textContent = `Comprar implica un costo total aproximado de ${formatter.format(purchaseTotal)} versus ${formatter.format(leaseTotal)} si arriendas.`;
-                    setActiveCard('buy');
-                } else {
-                    recommendationEl.textContent = 'Ambas alternativas tienen costos similares. Evalúa otros factores (flujo, uso, beneficios tributarios).';
-                    differenceEl.textContent = `Costos estimados muy cercanos: arriendo ${formatter.format(leaseTotal)} vs compra ${formatter.format(purchaseTotal)}.`;
-                    setActiveCard();
-                }
-            };
-
-            vehicleSelect.addEventListener('change', () => {
-                applyDefaults(vehicleSelect.value);
-                calculate();
-            });
-
-            [monthsInput, leaseMonthlyInput, leaseFinalInput, purchasePriceInput, ownershipMonthlyInput, residualInput].forEach(input => {
-                input.addEventListener('input', calculate);
-            });
-
-            if (calculateBtn) {
-                calculateBtn.addEventListener('click', calculate);
-            }
-
-            applyDefaults(vehicleSelect.value);
-            calculate();
-        }
-
-        // ======= Lógica para navegación responsive y scroll suave =======
-        const nav = document.querySelector('header nav');
-        const toggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelectorAll('header nav a');
-        const scrollTriggers = document.querySelectorAll('[data-scroll]');
-        const headerHeight = document.querySelector('header').offsetHeight;
-
-        const closeMenu = () => {
-            nav.classList.remove('open');
-            toggle.innerHTML = '<i class="fas fa-bars"></i>';
-        };
-
-        toggle.addEventListener('click', () => {
-            nav.classList.toggle('open');
-            const icon = nav.classList.contains('open') ? 'fa-times' : 'fa-bars';
-            toggle.innerHTML = `<i class="fas ${icon}"></i>`;
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', event => {
-                event.preventDefault();
-                const targetId = link.getAttribute('href');
-                const target = document.querySelector(targetId);
-                if (!target) return;
-                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - (headerHeight - 10);
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                navLinks.forEach(item => item.classList.remove('active'));
-                link.classList.add('active');
-                if (nav.classList.contains('open')) closeMenu();
-            });
-        });
-
-        scrollTriggers.forEach(button => {
-            button.addEventListener('click', () => {
-                const selector = button.dataset.scroll;
-                const target = document.querySelector(selector);
-                if (!target) return;
-                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - (headerHeight - 10);
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                if (nav.classList.contains('open')) closeMenu();
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const fromTop = window.scrollY + headerHeight + 10;
-            navLinks.forEach(link => {
-                const section = document.querySelector(link.getAttribute('href'));
-                if (!section) return;
-                if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-                    navLinks.forEach(item => item.classList.remove('active'));
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
