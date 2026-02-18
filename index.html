@@ -746,7 +746,7 @@
                 <div class="fleet-grid">
                     <!-- Tarjeta Toyota Hilux -->
                     <article class="card">
-                        <img src="media/toyota-hilux.jpg" alt="Toyota Hilux 4x4 color plata en concesionario" />
+                        <img src="media/toyota-hilux.jpg" alt="Toyota Hilux 4x4 color plata en concesionario" loading="lazy" />
                         <div class="card-body">
                             <i class="card-icon fas fa-truck-pickup"></i>
                             <h3>Toyota Hilux 4x4</h3>
@@ -760,7 +760,7 @@
                     </article>
                     <!-- Tarjeta KTM -->
                     <article class="card">
-                        <img src="media/ktm-890-adventure.jpg" alt="KTM Adventure 890 naranja en estudio de concesionario" />
+                        <img src="media/ktm-890-adventure.jpg" alt="KTM Adventure 890 naranja en estudio de concesionario" loading="lazy" />
                         <div class="card-body">
                             <i class="card-icon fas fa-motorcycle"></i>
                             <h3>KTM Adventure 890</h3>
@@ -774,7 +774,7 @@
                     </article>
                     <!-- Tarjeta Hyundai H1 -->
                     <article class="card">
-                        <img src="media/hyundai-h1.jpg" alt="Hyundai H1 cargo gris metálico en sala" />
+                        <img src="media/hyundai-h1.jpg" alt="Hyundai H1 cargo gris metálico en sala" loading="lazy" />
                         <div class="card-body">
                             <i class="card-icon fas fa-van-shuttle"></i>
                             <h3>Hyundai H1</h3>
@@ -788,7 +788,7 @@
                     </article>
                     <!-- Tarjeta Hino 300 -->
                     <article class="card">
-                        <img src="media/hino-300.jpg" alt="Camión Hino 300 blanco estacionado en sucursal" />
+                        <img src="media/hino-300.jpg" alt="Camión Hino 300 blanco estacionado en sucursal" loading="lazy" />
                         <div class="card-body">
                             <i class="card-icon fas fa-truck"></i>
                             <h3>Hino 300</h3>
@@ -840,7 +840,7 @@
                     <p>Ofrecemos arriendo y leasing flexible para flotas corporativas, proyectos industriales o faenas. Adaptamos cada contrato según tus necesidades, con soporte operativo, mantenimiento y reportes personalizados para asegurar continuidad operacional.</p>
                 </div>
                 <div class="enterprises-image">
-                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1400&q=80" alt="Fila de camionetas en concesionario listas para empresas" />
+                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1400&q=80" alt="Fila de camionetas en concesionario listas para empresas" loading="lazy" />
                 </div>
             </div>
         </section>
@@ -1125,24 +1125,28 @@
         const scrollTriggers = document.querySelectorAll('[data-scroll]');
         const headerHeight = document.querySelector('header').offsetHeight;
 
+        const sectionTargets = Array.from(navLinks).map(link => ({
+            link,
+            section: document.querySelector(link.getAttribute('href'))
+        })).filter(entry => entry.section !== null);
+
         const closeMenu = () => {
             nav.classList.remove('open');
-            toggle.innerHTML = '<i class="fas fa-bars"></i>';
+            toggle.querySelector('i').className = 'fas fa-bars';
         };
 
         toggle.addEventListener('click', () => {
             nav.classList.toggle('open');
             const icon = nav.classList.contains('open') ? 'fa-times' : 'fa-bars';
-            toggle.innerHTML = `<i class="fas ${icon}"></i>`;
+            toggle.querySelector('i').className = `fas ${icon}`;
         });
 
         navLinks.forEach(link => {
             link.addEventListener('click', event => {
                 event.preventDefault();
-                const targetId = link.getAttribute('href');
-                const target = document.querySelector(targetId);
-                if (!target) return;
-                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - (headerHeight - 10);
+                const entry = sectionTargets.find(e => e.link === link);
+                if (!entry) return;
+                const offsetTop = entry.section.getBoundingClientRect().top + window.pageYOffset - (headerHeight - 10);
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' });
                 navLinks.forEach(item => item.classList.remove('active'));
                 link.classList.add('active');
@@ -1161,15 +1165,21 @@
             });
         });
 
+        let scrollTicking = false;
         window.addEventListener('scroll', () => {
-            const fromTop = window.scrollY + headerHeight + 10;
-            navLinks.forEach(link => {
-                const section = document.querySelector(link.getAttribute('href'));
-                if (!section) return;
-                if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-                    navLinks.forEach(item => item.classList.remove('active'));
-                    link.classList.add('active');
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                const fromTop = window.scrollY + headerHeight + 10;
+                let activeLink = null;
+                for (const { link, section } of sectionTargets) {
+                    if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                        activeLink = link;
+                    }
                 }
+                navLinks.forEach(item => item.classList.remove('active'));
+                if (activeLink) activeLink.classList.add('active');
+                scrollTicking = false;
             });
         });
     </script>
